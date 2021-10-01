@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'dogs/index'
-  get 'dogs/edit'
-  get 'dogs/show'
   root "homes#top"
+  devise_for :users
+
+  resources :dogs, only: [:new, :create, :index, :show, :destroy, :edit, :update]
+
 end
